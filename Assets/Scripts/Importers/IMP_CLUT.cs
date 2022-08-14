@@ -16,6 +16,7 @@ public class IMP_CLUT : ScriptedImporter
         {
             ClutScriptableObject clut = ScriptableObject.CreateInstance("ClutScriptableObject") as ClutScriptableObject;
 
+            reader.Seek(0xc, SeekOrigin.Begin);
             clut.VRAM_X = reader.ReadInt16();
             clut.VRAM_Y = reader.ReadInt16();
             clut.WIDTH = reader.ReadInt16();
@@ -23,7 +24,6 @@ public class IMP_CLUT : ScriptedImporter
             clut.PALETTE = new ushort[clut.WIDTH * clut.HEIGHT];
             Texture2D texture = new Texture2D(clut.WIDTH, clut.HEIGHT, TextureFormat.RGBA32, false, false);
             Color32[] pixels = new Color32[clut.WIDTH * clut.HEIGHT];
-            reader.Seek(8, SeekOrigin.Current);
 
             for (int i = 0; i < clut.PALETTE.Length; i++)
                 clut.PALETTE[i] = reader.ReadUInt16();

@@ -8,4 +8,5 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 3af84bd50e068984ab4c5d9c53edd199, type: 3}
-  clut: {instanceID: 0}
+  clut: {fileID: 5605554348678623116, guid: dbfbeab0a49cfec47953434a99dfe06f, type: 3}
+  scale: 0

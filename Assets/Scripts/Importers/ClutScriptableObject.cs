@@ -15,6 +15,11 @@ public class ClutScriptableObject : ScriptableObject
 
     public ushort GetIndex(int id, int y)
     {
-        return PALETTE[id + y * WIDTH];
+        int index = id + y * 0x10;
+
+        if (index < PALETTE.Length)
+            return PALETTE[index];
+        else
+            return 0;
     }
 }
